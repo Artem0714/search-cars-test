@@ -5,6 +5,14 @@ export function useCar () {
     const [cars, setCars] = useState<ObjectCar[]>([]);
     const [error, setError] = useState(false)
 
+    function changeCardCar(car: ObjectCar) {
+        setCars(cars.map(item => item.id !== car.id ? item : car))
+    }
+
+    function deleteCardCar(car: ObjectCar) {
+        setCars(cars.filter(item => item.id !== car.id))
+    }
+
     const fetchCarCard = () => {
     return fetch('https://test.tspb.su/test-task/vehicles')
     .then(response => {
@@ -33,5 +41,5 @@ export function useCar () {
     getCarCard()
     }, [])
 
-    return {cars, error};
+    return {cars, error, deleteCardCar, changeCardCar};
 }
