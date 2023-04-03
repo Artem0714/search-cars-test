@@ -20,6 +20,9 @@
     align-items: center;
     left: 50%;
     transform: translate(-50%, 51%);
+    color: #3D7AA5;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .modal input {
@@ -28,6 +31,10 @@
     margin: 10px 0;
     outline: 0;
     box-sizing: border-box;
+    font-size: 14px;
+    color: #3D7AA5;
+    border: 1px solid #3D7AA5;
+    border-radius: 3px;
 }
 
 .modal button {

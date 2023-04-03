@@ -13,8 +13,6 @@ export function CarCard(props: CarProps) {
     const [modal, setModal] = useState(false);
 
     const changeHandler = (car: ObjectCar) => {
-        console.log(car);
-        
         props.onChangeToApp(car)
         setModal(false);
     }
@@ -27,12 +25,16 @@ export function CarCard(props: CarProps) {
         <>
             {modal && <Modal car={props.car} onChange={changeHandler} onClose={() => setModal(false)}/>}
             <div className="card">
-                <h2>{props.car.name} {props.car.model}</h2>
-                <div className="car-color-box" style={{width: "50px", height: "50px", background: props.car.color}}>{props.car.color}</div>
-                <p>{props.car.year}</p>
-                <p>{props.car.price}</p>
-                <button onClick={props.deleteCard}>Delete</button>
-                <button onClick={openModal}>Edit</button>
+                <div>
+                    <h2>{props.car.name} {props.car.model}</h2>
+                    <div className="card-color-box" style={{background: props.car.color}}></div>
+                    <p style={{marginBottom: "5px"}}>Year: {props.car.year}</p>
+                    <p>Price: <span style={{fontWeight: "600"}}>{props.car.price}</span></p>
+                </div>
+                <div className="card-button-box">
+                    <button onClick={props.deleteCard}>Delete</button>
+                    <button onClick={openModal}>Edit</button>
+                </div>
             </div>
         </>
     )
