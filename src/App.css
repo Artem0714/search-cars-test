@@ -7,3 +7,8 @@
     margin: 0 auto;
     justify-content: space-between;
 }
+
+.map {
+    width: 500px;
+    height: 500px;
+}
