@@ -1,4 +1,4 @@
-import './SortSelect.css';
+import './css/SortSelect.css';
 
 interface SortSelectProps {
     sortCardCar: (value: string) => void

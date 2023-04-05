@@ -1,3 +1,15 @@
+.modal-sticky-box {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.modal-sticky {
+    position: sticky
+}
+
 .modal-bg {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -19,7 +31,7 @@
     flex-direction: column;
     align-items: center;
     left: 50%;
-    transform: translate(-50%, 51%);
+    transform: translate(-50%, 50%);
     color: #3D7AA5;
     font-size: 20px;
     font-weight: 600;
@@ -48,8 +60,19 @@
     border-style: solid;
     transition: 0.3s;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .modal button:hover {
     background-color: #3b6c8f;
+}
+
+.modal-error {
+    margin-right: 5px;
+    color: red;
+    text-align: center;
+}
+
+.modal-title {
+    margin: 0 auto
 }

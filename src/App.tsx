@@ -1,29 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react'
+
 import { useCar } from './hooks/cars';
 import './App.css';
 import CarCard from './components/CarCard';
 import { ErrorMessage } from './components/ErrorMessage';
 import SortSelect from './components/SortSelect';
-import './ymaps.d.ts';
 
 export function App() {
   const {cars, error, deleteCardCar, changeCardCar, sortCardCar} = useCar();
+  // const mapRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    ymaps.ready().then(() => {
-      new ymaps.Map("map", {
-        center: [55.753995, 37.614069],
-        zoom: 12,
-        controls: ['smallMapDefaultSet']
-      });
-      new ymaps.Object({
-        geometry: {
-          type: "Point",
-          coordinates: [55.753995, 37.614069]
-        }
-      });
-    })
-  }, [])
+  // useEffect(() => {
+  //   if(mapRef.current) {
+  //   new google.maps.Map(mapRef.current, {
+  //     zoom: 1,
+  //     center: {
+  //       lat: 0,
+  //       lng: 0
+  //     }
+  //   })}
+
+  // },[])
 
   return (
     <div className='container'>
@@ -37,7 +34,7 @@ export function App() {
           onChangeToApp={changeCardCar}
         />
       ))}
-      <div id='map' className='map' style={{width: '600px', height: '400px'}}></div>
+      {/* <div ref={mapRef} className="map"></div> */}
     </div>
   );
 }

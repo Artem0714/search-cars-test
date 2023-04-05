@@ -48,3 +48,7 @@ h2 {
     background-color: #3b6c8f;
     color: #ffffff;
 }
+
+.p span {
+    font-weight: 600
+}
