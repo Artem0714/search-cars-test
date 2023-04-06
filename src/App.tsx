@@ -11,7 +11,6 @@ export function App() {
   const {cars, error, deleteCardCar, changeCardCar, sortCardCar} = useCar();
   const mapRef = useRef<HTMLDivElement>(null);
 
-
   useEffect(() => {
     let map: YMap | null = null;
 
@@ -19,24 +18,32 @@ export function App() {
       if (!mapRef.current) return;
 
       map = new ymaps3.YMap(mapRef.current, {
-        location: { center: [37.64, 55.76], zoom: 10 },
+        location: { center: [34.766185, 57.908542], zoom: 6 },
       });
 
       map.addChild(new ymaps3.YMapDefaultSchemeLayer({}));
+
+      map.addChild(new ymaps3.YMapDefaultFeaturesLayer({}));
+      
+      cars.forEach(item => {
+        let element = document.createElement("div");
+        
+        element.innerText = item.name;
+        element.className = "marker";
+        if (item.color === "white") {
+          element.style.color = "black";
+        }
+        element.style.backgroundColor= item.color;
+        
+        map?.addChild(new ymaps3.YMapMarker({
+          coordinates: [item.longitude, item.latitude]
+        }, element)
+        );
+      })
     });
-  }, []);
-
-  // useEffect(() => {
-  //   if(mapRef.current) {
-  //   new google.maps.Map(mapRef.current, {
-  //     zoom: 1,
-  //     center: {
-  //       lat: 0,
-  //       lng: 0
-  //     }
-  //   })}
-
-  // },[])
+    
+    return () => map?.destroy()
+  }, [cars]);
 
   return (
     <div className='container'>

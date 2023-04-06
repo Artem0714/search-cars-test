@@ -38,38 +38,35 @@ export function Modal({onChange, onClose, car}: ChangeCardCar) {
 
     return (
         <>
-            <div className='modal-bg' onClick={onClose} />
-            <div className="modal-sticky-box">
-                <div className="modal-sticky">
-                    <div className='modal'>
-                        <h1 className='modal-title'>Make changes</h1>
-                        <form onSubmit={submitHandler}>
-                            <input 
-                                type="text" 
-                                placeholder='Name'
-                                title='name'
-                                value={value.name}
-                                onChange = {changeHandler}
-                            />
-                            <input 
-                                type="text" 
-                                placeholder='Model'
-                                title='model'
-                                value={value.model}
-                                onChange = {changeHandler}
-                            />
-                            <input 
-                                type="text" 
-                                placeholder='Price'
-                                title='price'
-                                value={value.price}
-                                onChange = {changeHandler}
-                            />
-                            {error && <p className='modal-error'>{error}</p>}
-                            <button type='submit'>Edit</button>
-                            <button onClick={cancelHandler}>Cancel</button>
-                        </form>
-                    </div>
+            <div className='modal-bg'>
+                <div className='modal'>
+                    <h1 className='modal-title'>Make changes</h1>
+                    <form onSubmit={submitHandler}>
+                        <input 
+                            type='text' 
+                            placeholder='Name'
+                            title='name'
+                            value={value.name}
+                            onChange = {changeHandler}
+                        />
+                        <input 
+                            type='text' 
+                            placeholder='Model'
+                            title='model'
+                            value={value.model}
+                            onChange = {changeHandler}
+                        />
+                        <input 
+                            type='text' 
+                            placeholder='Price'
+                            title='price'
+                            value={value.price}
+                            onChange = {changeHandler}
+                        />
+                        {error && <p className='modal-error'>{error}</p>}
+                        <button type='submit'>Edit</button>
+                        <button onClick={cancelHandler}>Cancel</button>
+                    </form>
                 </div>
             </div>
         </>
